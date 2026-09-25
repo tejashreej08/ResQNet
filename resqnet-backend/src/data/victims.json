@@ -1,0 +1,80 @@
+[
+  {
+    "id": "V001",
+    "name": "Victim A - T Nagar",
+    "location": { "node": "N3", "lat": 13.0404, "lng": 80.2338 },
+    "age": 72,
+    "medicalNeed": "critical",
+    "groupSize": 4,
+    "hazardSeverity": 90,
+    "timeSinceContact": 45,
+    "status": "waiting",
+    "disasterId": "DIS001",
+    "rescueScore": 95
+  },
+  {
+    "id": "V002",
+    "name": "Victim B - Adyar",
+    "location": { "node": "N5", "lat": 13.0081, "lng": 80.2528 },
+    "age": 25,
+    "medicalNeed": "low",
+    "groupSize": 2,
+    "hazardSeverity": 55,
+    "timeSinceContact": 15,
+    "status": "waiting",
+    "disasterId": "DIS002",
+    "rescueScore": 60
+  },
+  {
+    "id": "V003",
+    "name": "Victim C - Guindy",
+    "location": { "node": "N6", "lat": 13.0088, "lng": 80.2181 },
+    "age": 8,
+    "medicalNeed": "critical",
+    "groupSize": 6,
+    "hazardSeverity": 80,
+    "timeSinceContact": 30,
+    "status": "waiting",
+    "disasterId": "DIS001",
+    "rescueScore": 90
+  },
+  {
+    "id": "V004",
+    "name": "Victim D - Velachery",
+    "location": { "node": "N7", "lat": 12.9751, "lng": 80.2013 },
+    "age": 58,
+    "medicalNeed": "low",
+    "groupSize": 1,
+    "hazardSeverity": 65,
+    "timeSinceContact": 20,
+    "status": "waiting",
+    "disasterId": "DIS003",
+    "rescueScore": 20
+  },
+  {
+    "id": "V005",
+    "name": "Victim E - Anna Nagar",
+    "location": { "node": "N8", "lat": 13.0848, "lng": 80.2099 },
+    "age": 41,
+    "medicalNeed": "critical",
+    "groupSize": 3,
+    "hazardSeverity": 82,
+    "timeSinceContact": 28,
+    "status": "waiting",
+    "disasterId": "DIS001",
+    "rescueScore": 60
+  },
+  {
+    "id": "V006",
+    "name": "Victim F - Tambaram",
+    "location": { "node": "N9", "lat": 12.9243, "lng": 80.1241 },
+    "age": 61,
+    "medicalNeed": "low",
+    "groupSize": 5,
+    "hazardSeverity": 68,
+    "timeSinceContact": 35,
+    "status": "waiting",
+    "disasterId": "DIS003",
+    "rescueScore": 50
+  }
+]

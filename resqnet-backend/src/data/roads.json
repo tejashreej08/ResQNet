@@ -1,0 +1,10 @@
+[
+  { "id": "R001", "from": "N1", "to": "N2", "distance": 3.4, "travelTime": 5, "status": "open", "riskPenalty": 0 },
+  { "id": "R002", "from": "N2", "to": "N3", "distance": 4.1, "travelTime": 8, "status": "open", "riskPenalty": 0 },
+  { "id": "R003", "from": "N1", "to": "N4", "distance": 6.8, "travelTime": 10, "status": "open", "riskPenalty": 0 },
+  { "id": "R004", "from": "N4", "to": "N3", "distance": 2.6, "travelTime": 5, "status": "open", "riskPenalty": 0 },
+  { "id": "R005", "from": "N3", "to": "N5", "distance": 2.9, "travelTime": 4, "status": "open", "riskPenalty": 0 },
+  { "id": "R006", "from": "N4", "to": "N6", "distance": 3.2, "travelTime": 7, "status": "open", "riskPenalty": 0 },
+  { "id": "R007", "from": "N6", "to": "N5", "distance": 2.1, "travelTime": 4, "status": "open", "riskPenalty": 0 },
+  { "id": "R008", "from": "N2", "to": "N6", "distance": 5.7, "travelTime": 12, "status": "open", "riskPenalty": 0 }
+]

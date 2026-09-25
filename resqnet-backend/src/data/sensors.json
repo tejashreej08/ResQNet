@@ -1,0 +1,42 @@
+[
+  {
+    "id": "S001",
+    "type": "water_level",
+    "location": { "lat": 12.925, "lng": 80.101 },
+    "waterLevel": 110,
+    "threshold": 70,
+    "status": "critical",
+    "disasterId": "DIS001",
+    "timestamp": "2026-09-22T10:30:00Z"
+  },
+  {
+    "id": "S002",
+    "type": "water_level",
+    "location": { "lat": 12.93, "lng": 80.105 },
+    "waterLevel": 55,
+    "threshold": 70,
+    "status": "normal",
+    "disasterId": "DIS001",
+    "timestamp": "2026-09-22T10:30:00Z"
+  },
+  {
+    "id": "S003",
+    "type": "seismic",
+    "location": { "lat": 12.94, "lng": 80.11 },
+    "intensity": 6.2,
+    "threshold": 5,
+    "status": "warning",
+    "disasterId": "DIS002",
+    "timestamp": "2026-09-22T10:35:00Z"
+  },
+  {
+    "id": "S004",
+    "type": "structural",
+    "location": { "lat": 12.95, "lng": 80.12 },
+    "strain": 82,
+    "threshold": 60,
+    "status": "warning",
+    "disasterId": "DIS003",
+    "timestamp": "2026-09-22T10:40:00Z"
+  }
+]

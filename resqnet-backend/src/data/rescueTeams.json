@@ -1,0 +1,29 @@
+﻿[
+  {
+    "id": "T001",
+    "name": "Chennai Rescue Team Alpha",
+    "type": "ambulance",
+    "location": { "node": "N1", "lat": 12.92, "lng": 80.09 },
+    "status": "available",
+    "capacity": 3,
+    "capabilities": ["medical", "flood"]
+  },
+  {
+    "id": "T002",
+    "name": "Chennai Rescue Team Beta",
+    "type": "rescue_team",
+    "location": { "node": "N4", "lat": 12.935, "lng": 80.11 },
+    "status": "available",
+    "capacity": 6,
+    "capabilities": ["flood", "earthquake", "landslide"]
+  },
+  {
+    "id": "T003",
+    "name": "Chennai Rescue Boat Gamma",
+    "type": "boat",
+    "location": { "node": "N2", "lat": 12.923, "lng": 80.103 },
+    "status": "busy",
+    "capacity": 5,
+    "capabilities": ["flood"]
+  }
+]

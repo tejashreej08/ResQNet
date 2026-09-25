@@ -1,0 +1,322 @@
+﻿[
+  {
+    "id": "V001",
+    "name": "Chennai Victim 1",
+    "location": {
+      "node": "N6",
+      "lat": 12.924921,
+      "lng": 80.122763
+    },
+    "age": 58,
+    "medicalNeed": "critical",
+    "groupSize": 4,
+    "hazardSeverity": 37,
+    "timeSinceContact": 81,
+    "status": "waiting",
+    "disasterId": "DIS001"
+  },
+  {
+    "id": "V002",
+    "name": "Chennai Victim 2",
+    "location": {
+      "node": "N6",
+      "lat": 12.901869,
+      "lng": 80.084345
+    },
+    "age": 40,
+    "medicalNeed": "low",
+    "groupSize": 1,
+    "hazardSeverity": 49,
+    "timeSinceContact": 27,
+    "status": "waiting",
+    "disasterId": "DIS001"
+  },
+  {
+    "id": "V003",
+    "name": "Chennai Victim 3",
+    "location": {
+      "node": "N6",
+      "lat": 12.900255,
+      "lng": 80.086913
+    },
+    "age": 44,
+    "medicalNeed": "medium",
+    "groupSize": 2,
+    "hazardSeverity": 51,
+    "timeSinceContact": 33,
+    "status": "waiting",
+    "disasterId": "DIS001"
+  },
+  {
+    "id": "V004",
+    "name": "Chennai Victim 4",
+    "location": {
+      "node": "N6",
+      "lat": 12.90842,
+      "lng": 80.107684
+    },
+    "age": 43,
+    "medicalNeed": "low",
+    "groupSize": 5,
+    "hazardSeverity": 47,
+    "timeSinceContact": 77,
+    "status": "waiting",
+    "disasterId": "DIS001"
+  },
+  {
+    "id": "V005",
+    "name": "Chennai Victim 5",
+    "location": {
+      "node": "N3",
+      "lat": 12.905588,
+      "lng": 80.081928
+    },
+    "age": 67,
+    "medicalNeed": "medium",
+    "groupSize": 2,
+    "hazardSeverity": 57,
+    "timeSinceContact": 107,
+    "status": "waiting",
+    "disasterId": "DIS001"
+  },
+  {
+    "id": "V006",
+    "name": "Chennai Victim 6",
+    "location": {
+      "node": "N6",
+      "lat": 12.945941,
+      "lng": 80.10441
+    },
+    "age": 73,
+    "medicalNeed": "medium",
+    "groupSize": 1,
+    "hazardSeverity": 17,
+    "timeSinceContact": 115,
+    "status": "waiting",
+    "disasterId": "DIS001"
+  },
+  {
+    "id": "V007",
+    "name": "Chennai Victim 7",
+    "location": {
+      "node": "N3",
+      "lat": 12.912238,
+      "lng": 80.089696
+    },
+    "age": 8,
+    "medicalNeed": "critical",
+    "groupSize": 1,
+    "hazardSeverity": 4,
+    "timeSinceContact": 70,
+    "status": "waiting",
+    "disasterId": "DIS001"
+  },
+  {
+    "id": "V008",
+    "name": "Chennai Victim 8",
+    "location": {
+      "node": "N5",
+      "lat": 12.934257,
+      "lng": 80.103126
+    },
+    "age": 63,
+    "medicalNeed": "high",
+    "groupSize": 2,
+    "hazardSeverity": 67,
+    "timeSinceContact": 58,
+    "status": "waiting",
+    "disasterId": "DIS001"
+  },
+  {
+    "id": "V009",
+    "name": "Chennai Victim 9",
+    "location": {
+      "node": "N6",
+      "lat": 12.94838,
+      "lng": 80.116326
+    },
+    "age": 87,
+    "medicalNeed": "high",
+    "groupSize": 3,
+    "hazardSeverity": 88,
+    "timeSinceContact": 119,
+    "status": "waiting",
+    "disasterId": "DIS001"
+  },
+  {
+    "id": "V010",
+    "name": "Chennai Victim 10",
+    "location": {
+      "node": "N6",
+      "lat": 12.923081,
+      "lng": 80.089517
+    },
+    "age": 7,
+    "medicalNeed": "medium",
+    "groupSize": 3,
+    "hazardSeverity": 100,
+    "timeSinceContact": 43,
+    "status": "waiting",
+    "disasterId": "DIS001"
+  },
+  {
+    "id": "V011",
+    "name": "Chennai Victim 11",
+    "location": {
+      "node": "N6",
+      "lat": 12.934397,
+      "lng": 80.123732
+    },
+    "age": 73,
+    "medicalNeed": "high",
+    "groupSize": 2,
+    "hazardSeverity": 83,
+    "timeSinceContact": 45,
+    "status": "waiting",
+    "disasterId": "DIS001"
+  },
+  {
+    "id": "V012",
+    "name": "Chennai Victim 12",
+    "location": {
+      "node": "N5",
+      "lat": 12.926232,
+      "lng": 80.122812
+    },
+    "age": 31,
+    "medicalNeed": "low",
+    "groupSize": 3,
+    "hazardSeverity": 80,
+    "timeSinceContact": 49,
+    "status": "waiting",
+    "disasterId": "DIS001"
+  },
+  {
+    "id": "V013",
+    "name": "Chennai Victim 13",
+    "location": {
+      "node": "N6",
+      "lat": 12.941674,
+      "lng": 80.113335
+    },
+    "age": 4,
+    "medicalNeed": "critical",
+    "groupSize": 4,
+    "hazardSeverity": 26,
+    "timeSinceContact": 49,
+    "status": "waiting",
+    "disasterId": "DIS001"
+  },
+  {
+    "id": "V014",
+    "name": "Chennai Victim 14",
+    "location": {
+      "node": "N5",
+      "lat": 12.909905,
+      "lng": 80.086333
+    },
+    "age": 20,
+    "medicalNeed": "critical",
+    "groupSize": 1,
+    "hazardSeverity": 64,
+    "timeSinceContact": 116,
+    "status": "waiting",
+    "disasterId": "DIS001"
+  },
+  {
+    "id": "V015",
+    "name": "Chennai Victim 15",
+    "location": {
+      "node": "N5",
+      "lat": 12.905422,
+      "lng": 80.108078
+    },
+    "age": 48,
+    "medicalNeed": "medium",
+    "groupSize": 2,
+    "hazardSeverity": 10,
+    "timeSinceContact": 95,
+    "status": "waiting",
+    "disasterId": "DIS001"
+  },
+  {
+    "id": "V016",
+    "name": "Chennai Victim 16",
+    "location": {
+      "node": "N3",
+      "lat": 12.918616,
+      "lng": 80.083281
+    },
+    "age": 14,
+    "medicalNeed": "critical",
+    "groupSize": 1,
+    "hazardSeverity": 2,
+    "timeSinceContact": 29,
+    "status": "waiting",
+    "disasterId": "DIS001"
+  },
+  {
+    "id": "V017",
+    "name": "Chennai Victim 17",
+    "location": {
+      "node": "N6",
+      "lat": 12.902313,
+      "lng": 80.085971
+    },
+    "age": 79,
+    "medicalNeed": "critical",
+    "groupSize": 3,
+    "hazardSeverity": 28,
+    "timeSinceContact": 103,
+    "status": "waiting",
+    "disasterId": "DIS001"
+  },
+  {
+    "id": "V018",
+    "name": "Chennai Victim 18",
+    "location": {
+      "node": "N5",
+      "lat": 12.922682,
+      "lng": 80.122008
+    },
+    "age": 79,
+    "medicalNeed": "low",
+    "groupSize": 1,
+    "hazardSeverity": 98,
+    "timeSinceContact": 51,
+    "status": "waiting",
+    "disasterId": "DIS001"
+  },
+  {
+    "id": "V019",
+    "name": "Chennai Victim 19",
+    "location": {
+      "node": "N3",
+      "lat": 12.912249,
+      "lng": 80.114323
+    },
+    "age": 39,
+    "medicalNeed": "low",
+    "groupSize": 5,
+    "hazardSeverity": 89,
+    "timeSinceContact": 32,
+    "status": "waiting",
+    "disasterId": "DIS001"
+  },
+  {
+    "id": "V020",
+    "name": "Chennai Victim 20",
+    "location": {
+      "node": "N6",
+      "lat": 12.93113,
+      "lng": 80.103345
+    },
+    "age": 39,
+    "medicalNeed": "critical",
+    "groupSize": 5,
+    "hazardSeverity": 42,
+    "timeSinceContact": 67,
+    "status": "waiting",
+    "disasterId": "DIS001"
+  }
+]

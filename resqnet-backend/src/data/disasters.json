@@ -1,0 +1,35 @@
+[
+  {
+    "id": "DIS001",
+    "name": "Flood Zone - T Nagar",
+    "type": "flood",
+    "location": "T Nagar",
+    "severity": "High",
+    "status": "active",
+    "zone": "Flood Zone - T Nagar",
+    "coordinates": { "lat": 13.0412, "lng": 80.2317 },
+    "createdAt": "2026-09-25T06:00:00Z"
+  },
+  {
+    "id": "DIS002",
+    "name": "Flood Zone - Adyar",
+    "type": "flood",
+    "location": "Adyar",
+    "severity": "Critical",
+    "status": "active",
+    "zone": "Flood Zone - Adyar",
+    "coordinates": { "lat": 13.0065, "lng": 80.2553 },
+    "createdAt": "2026-09-25T06:05:00Z"
+  },
+  {
+    "id": "DIS003",
+    "name": "Flood Zone - Velachery",
+    "type": "flood",
+    "location": "Velachery",
+    "severity": "Moderate",
+    "status": "active",
+    "zone": "Flood Zone - Velachery",
+    "coordinates": { "lat": 12.9764, "lng": 80.2105 },
+    "createdAt": "2026-09-25T06:10:00Z"
+  }
+]
