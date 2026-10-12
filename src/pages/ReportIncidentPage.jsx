@@ -47,8 +47,8 @@ export default function ReportIncidentPage() {
 
     setLoading(false);
 
-    if (result?.success || result?.__demo) {
-      setSuccess('Incident report submitted successfully. Demo mode only — no real dispatch has been triggered.');
+    if (result?.success) {
+      setSuccess('Incident report submitted successfully and added to the live rescue queue.');
       setDescription('');
     } else {
       setError(result?.message || 'Could not submit the report.');

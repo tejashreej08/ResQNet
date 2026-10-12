@@ -1,10 +1,9 @@
-import { useEffect, useState } from 'react';
-import { ArrowLeft, Navigation, Route, TimerReset } from 'lucide-react';
+import { useEffect, useMemo, useState } from 'react';
+import { ArrowLeft, Navigation } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import MapView from '../components/map/MapView';
 import RouteStepCard from '../components/routes/RouteStepCard';
 import { fetchRoute, rerouteRoute } from '../services/routeService';
-import { mockMapZones } from '../data/mockData';
 
 export default function SafeRoutePage() {
   const navigate = useNavigate();
@@ -73,6 +72,12 @@ export default function SafeRoutePage() {
     time: '2 min',
   };
 
+  const routeZones = useMemo(() => [
+    { id: 'zone-t-nagar', type: 'flood', name: 'T Nagar Flood Zone', lat: 13.05, lng: 80.23, radius: 260 },
+    { id: 'zone-adyar', type: 'critical', name: 'Adyar Risk Zone', lat: 13.0075, lng: 80.255, radius: 240 },
+    { id: 'zone-velachery', type: 'moderate', name: 'Velachery Watch Zone', lat: 12.97, lng: 80.2, radius: 220 },
+  ], []);
+
   return (
     <div className="app-shell detail-shell">
       <header className="detail-header">
@@ -98,7 +103,7 @@ export default function SafeRoutePage() {
       </div>
 
       <div className="map-panel route-map-panel">
-        <MapView showRoute zones={mockMapZones} markers={[{ id: 'route-user', lat: 12.92, lng: 80.095, color: '#67f3ff', label: 'You' }, { id: 'route-shelter', lat: 12.95, lng: 80.12, color: '#3be7c7', label: 'Shelter' }]} route={[[12.92,80.095],[12.93,80.101],[12.94,80.11],[12.95,80.12]]} />
+        <MapView showRoute zones={routeZones} markers={[{ id: 'route-user', lat: 12.92, lng: 80.095, color: '#67f3ff', label: 'You' }, { id: 'route-shelter', lat: 12.95, lng: 80.12, color: '#3be7c7', label: 'Shelter' }]} route={[[12.92,80.095],[12.93,80.101],[12.94,80.11],[12.95,80.12]]} />
       </div>
 
       <div className="route-badges">

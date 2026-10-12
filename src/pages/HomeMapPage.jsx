@@ -7,30 +7,30 @@ import BottomNavigation from '../components/layout/BottomNavigation';
 import MapView from '../components/map/MapView';
 import { fetchDisasters } from '../services/disasterService';
 import { fetchSensors } from '../services/sensorService';
-import { mockMapZones } from '../data/mockData';
+import { fetchVictims } from '../services/victimService';
 
-const mapMarkers = [
-  { id: 'critical', lat: 12.93, lng: 80.105, color: '#ff5b57', label: 'Critical Zone' },
-  { id: 'flood', lat: 12.925, lng: 80.101, color: '#ff9f43', label: 'Flooding' },
-  { id: 'victim', lat: 12.94, lng: 80.11, color: '#ffca3a', label: 'Victim' },
-  { id: 'center', lat: 12.95, lng: 80.12, color: '#3be7c7', label: 'Emergency Center' },
-  { id: 'user', lat: 12.92, lng: 80.095, color: '#67f3ff', label: 'You are here' },
-];
+const mapMarkers = [];
 
 export default function HomeMapPage() {
   const navigate = useNavigate();
   const [disasters, setDisasters] = useState([]);
   const [sensors, setSensors] = useState([]);
+  const [victims, setVictims] = useState([]);
   const [loading, setLoading] = useState(true);
   const [view, setView] = useState('map');
 
   useEffect(() => {
     const loadData = async () => {
       setLoading(true);
-      const disasterData = await fetchDisasters();
-      const sensorData = await fetchSensors();
+      const [disasterData, sensorData, victimData] = await Promise.all([
+        fetchDisasters(),
+        fetchSensors(),
+        fetchVictims(),
+      ]);
+
       setDisasters(Array.isArray(disasterData) ? disasterData : disasterData.data || []);
       setSensors(sensorData.results || sensorData.data || []);
+      setVictims(Array.isArray(victimData) ? victimData : victimData.data || []);
       setLoading(false);
     };
 
@@ -45,25 +45,58 @@ export default function HomeMapPage() {
     [12.95, 80.12],
   ], []);
 
-  const incidentList = useMemo(() => {
-    const entries = disasters.map((incident, index) => ({
-      id: incident.id || `${incident.name || 'disaster'}-${index}`,
-      title: incident.name || 'Disaster Zone',
-      detail: incident.location || 'North Harbor District',
-      severity: incident.severity || 'High',
-      status: incident.status || 'Active',
+  const mapZones = useMemo(() => {
+    const disasterZones = disasters.map((disaster, index) => ({
+      id: `disaster-zone-${disaster.id || index + 1}`,
+      type: (disaster.severity || 'High').toLowerCase().includes('critical') ? 'critical' : (disaster.severity || 'High').toLowerCase().includes('moderate') ? 'moderate' : 'flood',
+      name: disaster.name || disaster.zone || 'Disaster Zone',
+      lat: Number(disaster.coordinates?.lat ?? disaster.location?.lat ?? 12.93 + index * 0.01),
+      lng: Number(disaster.coordinates?.lng ?? disaster.location?.lng ?? 80.11 + index * 0.01),
+      radius: 260 + index * 60,
     }));
 
-    if (!entries.length) {
-      return [
-        { id: 'flood', title: 'Flooding', detail: 'Harbor Ave • 2.1 km', severity: 'High', status: 'Active' },
-        { id: 'fire', title: 'Power Lines', detail: 'Lark Street • 1.3 km', severity: 'Moderate', status: 'Monitoring' },
-        { id: 'rescue', title: 'Rescue Team', detail: 'Emergency Center • 0.8 km', severity: 'Low', status: 'On route' },
-      ];
-    }
+    const sensorZones = (sensors || []).map((sensor, index) => ({
+      id: `sensor-zone-${sensor.sensorId || sensor.id || index + 1}`,
+      type: sensor.status === 'critical' ? 'critical' : sensor.status === 'warning' ? 'moderate' : 'safe',
+      name: 'Sensor Zone',
+      lat: Number(sensor.location?.lat ?? 12.93 + index * 0.005),
+      lng: Number(sensor.location?.lng ?? 80.11 + index * 0.005),
+      radius: 180,
+    }));
+
+    return [...disasterZones, ...sensorZones];
+  }, [disasters, sensors]);
+
+  const victimMarkers = useMemo(() => (
+    (victims || []).map((victim, index) => ({
+      id: `victim-marker-${victim.id || index + 1}`,
+      lat: Number(victim.location?.lat ?? victim.location?.coordinates?.lat ?? 12.93 + index * 0.003),
+      lng: Number(victim.location?.lng ?? victim.location?.coordinates?.lng ?? 80.11 + index * 0.003),
+      color: '#ffca3a',
+      label: victim.name || 'Submitted report',
+    }))
+  ), [victims]);
+
+  const incidentList = useMemo(() => {
+    const entries = [
+      ...disasters.map((incident, index) => ({
+        id: `disaster-entry-${incident.id || index + 1}`,
+        title: incident.name || 'Disaster Zone',
+        detail: incident.location || 'North Harbor District',
+        severity: incident.severity || 'High',
+        status: incident.status || 'Active',
+      })),
+      ...victims.map((victim, index) => ({
+        id: `victim-entry-${victim.id || index + 1}`,
+        title: victim.name || 'Citizen Report',
+        detail: typeof victim.location === 'string' ? victim.location : `${victim.location?.lat ?? ''}, ${victim.location?.lng ?? ''}`,
+        severity: victim.medicalNeed || 'Moderate',
+        status: victim.status || 'Waiting',
+      })),
+    ];
 
     return entries;
-  }, [disasters]);
+  }, [disasters, victims]);
 
   return (
     <div className="app-shell map-shell-page">
@@ -89,15 +122,8 @@ export default function HomeMapPage() {
               <div className="map-surface loading-surface">Loading live map...</div>
             ) : (
               <MapView
-                zones={mockMapZones.concat(sensors.map((sensor) => ({
-                  id: sensor.sensorId || sensor.id,
-                  type: sensor.status === 'critical' ? 'critical' : sensor.status === 'warning' ? 'moderate' : 'safe',
-                  name: 'Sensor Zone',
-                  lat: sensor.location?.lat || 12.93,
-                  lng: sensor.location?.lng || 80.11,
-                  radius: 220,
-                })))}
-                markers={mapMarkers}
+                zones={mapZones}
+                markers={[...mapMarkers, ...victimMarkers]}
                 route={routePositions}
                 showRoute
               />
@@ -147,8 +173,8 @@ export default function HomeMapPage() {
       <div className="mini-alert-card">
         <AlertTriangle size={16} />
         <div>
-          <strong>{disasters[0]?.location || 'Synthetic Zone A'}</strong>
-          <span>{disasters[0]?.severity || 'High'} risk • {sensors.length || 2} sensors active</span>
+          <strong>{disasters[0]?.name || disasters[0]?.zone || 'No active disaster zone'}</strong>
+          <span>{disasters[0]?.severity || 'Live'} risk • {sensors.length || 0} sensors active</span>
         </div>
         <Radio size={16} className="signal-icon" />
       </div>

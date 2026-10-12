@@ -2,41 +2,27 @@ import { useEffect, useMemo, useState } from 'react';
 import { ArrowLeft, BellDot } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import AlertCard from '../components/alerts/AlertCard';
-import { mockAlerts } from '../data/mockData';
+import { fetchAlerts } from '../services/disasterService';
 
 const tabs = ['All', 'Critical', 'Unread'];
 
 export default function AlertFeedPage() {
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState('All');
-  const [alerts, setAlerts] = useState(mockAlerts);
+  const [alerts, setAlerts] = useState([]);
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setAlerts((current) => {
-        if (current.length >= 6) return current;
-        return [
-          {
-            id: `A${current.length + 1}`,
-            type: 'flash-flood',
-            title: 'Flash Flood Warning',
-            description: 'Water level update from nearby river sensors.',
-            severity: 'critical',
-            location: 'Zone A – Riverside',
-            time: 'Just now',
-            read: false,
-            action: 'safe-route',
-          },
-          ...current,
-        ];
-      });
-    }, 18000);
+    const loadAlerts = async () => {
+      const result = await fetchAlerts();
+      const sourceAlerts = Array.isArray(result?.data) ? result.data : [];
+      setAlerts(sourceAlerts.length ? sourceAlerts : []);
+    };
 
-    return () => clearInterval(timer);
+    loadAlerts();
   }, []);
 
   const filteredAlerts = useMemo(() => {
-    if (activeTab === 'Critical') return alerts.filter((alert) => alert.severity === 'critical' || alert.severity === 'high');
+    if (activeTab === 'Critical') return alerts.filter((alert) => (alert.severity || '').toLowerCase() === 'critical' || (alert.severity || '').toLowerCase() === 'high');
     if (activeTab === 'Unread') return alerts.filter((alert) => !alert.read);
     return alerts;
   }, [activeTab, alerts]);
